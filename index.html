@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heaven Salon</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Seymour+One&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-messages.min.js"></script>
+<script src="form.js"></script>
+</head>
+<body ng-controller="FormController">
+
+<!-- NAVIGATIONBAR -->
+<div class="nav">
+<a class="heaven" href="#">Heaven</a>
+<div class="nav-right">
+<a class="nav-item" href="index.html">Home</a>
+<a class="nav-item" href="aboutus.html">About Us</a>
+<a class="nav-item" href="gallery.html">Gallery</a>
+<a class="nav-item" href="#cont">Contact Us</a>
+</div>
+</div>
+<!-- /NAVIGATIONBAR -->
+
+<!-- JUMBOTRON -->
+<div class="jumbotron">
+<div class="section1">
+<h1 class="display">Heaven Salon|Academy By Neetu</h1>
+<h2>Are you searching for the best bridal makeup artist in Dombivli to make your special day unforgettable? </h2>
+<h2>Look no further than Heaven Salon Academy. </h2>
+<h2>Our expert team is dedicated to providing brides with exquisite makeup that highlights their natural beauty and enhances their features.</h2>
+<hr class="my-4">
+<h4 style="font-weight: bolder;">Why Choose Us?</h4>
+<a class="btn-1" href="gallery.html" role="button">Here's Why</a>
+</div>
+</div>
+<!-- /JUMBOTRON -->
+
+<!-- CAROUSEL -->
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+<div class="carousel-indicators">
+<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+</div>
+<div class="carousel-inner">
+<div class="carousel-item active">
+<img src="5.png" class="d-block w-100" style="height:650px;" alt="Heaven">
+</div>
+<div class="carousel-item">
+<img src="6.png" class="d-block w-100" style="height:650px;" alt="Heaven">
+</div>
+<div class="carousel-item">
+<img src="9.png" class="d-block w-100" style="height:650px;" alt="Heaven">
+</div>
+<div class="carousel-item">
+<img src="4.png" class="d-block w-100" style="height:650px;" alt="Heaven">
+</div>
+</div>
+<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Previous</span>
+</button>
+<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+<span class="visually-hidden">Next</span>
+</button>
+</div>
+<!-- /CAROUSEL -->
+
+<!-- CONTACTUS FORM -->
+<div id="cont" class="contact-clean">
+<form name="myForm" novalidate>
+<h2 class="text-center">Contact us</h2>
+<div class="form-group">
+<input class="form-control" type="text" name="name" ng-model="name" placeholder="Name" required>
+<span ng-show="myForm.$submitted || myForm.name.$touched">
+<span class="error" ng-show="myForm.name.$error.required"><i class="fa fa-exclamation-circle"></i> Name Required</span>
+</span>
+</div>
+<div class="form-group">
+<input class="form-control" type="email" name="email" ng-model="email" placeholder="Email" pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" required>
+<span ng-show="myForm.$submitted || myForm.email.$touched">
+<span class="error" ng-show="myForm.email.$error.required"><i class="fa fa-exclamation-circle"></i> Email Required</span>
+<span class="error" ng-show="myForm.email.$error.pattern"><i class="fa fa-exclamation-circle"></i> Invalid Email</span>
+</span>
+</div>
+<div class="form-group">
+<textarea class="form-control" name="message" ng-model="message" placeholder="Message" rows="14" required></textarea>
+<span ng-show="myForm.$submitted || myForm.message.$touched">
+<span class="error" ng-show="myForm.message.$error.required"><i class="fa fa-exclamation-circle"></i> Message Required</span>
+</span>
+</div>
+<div class="form-group">
+<button class="btn btn-primary" type="submit">Send</button>
+</div>
+</form>
+</div>
+<!-- /CONTACTUS FORM -->
+
+<!-- FOOTER -->
+<footer class="text-center text-lg-start bg-white text-muted">
+<section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+<div class="me-5 d-none d-lg-block">
+<span class="fth1">Get connected with us on social networks:</span>
+</div>
+
+<div>
+<a href="#" target="_blank" class="me-4 link-secondary">
+<i class="fab fa-facebook-f" style="color: #49326b;"></i>
+</a>
+<a href="#" target="_blank" class="me-4 link-secondary">
+<i class="fab fa-twitter" style="color: #49326b;"></i>
+</a>
+<a href="https://g.co/kgs/vpkGPqP" target="_blank" class="me-4 link-secondary">
+<i class="fab fa-google" style="color: #49326b;"></i>
+</a>
+<a href="https://www.instagram.com/neetu4833/" target="_blank" class="me-4 link-secondary">
+<i class="fab fa-instagram" style="color: #49326b;"></i>
+</a>
+</div>
+</section>
+
+<section class="s2">
+<div class="container text-center text-md-start mt-5">
+<div class="row mt-3">
+<div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+<h6 class="text-uppercase fw-bold mb-4">
+<i class="fas fa-gem me-3 text-secondary"></i>Heaven Salon
+</h6>
+<p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15070.522735762892!2d73.0957432!3d19.2113265!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7952a04ff4abf%3A0x7de93dfa91ae2656!2sHeaven%20by%20Neetu%20%7C%20Salon%20%7C%20Academy!5e0!3m2!1sen!2sin!4v1717338180554!5m2!1sen!2sin" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        </p>
+</div>
+
+
+<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+<h6 class="text-uppercase fw-bold mb-4">
+Services
+</h6>
+<p class="p1">
+<a href="#!" class="text-reset">Facial</a>
+</p>
+<p class="p1">
+<a href="#!" class="text-reset">Manicure/Pedicure</a>
+</p>
+<p class="p1">
+<a href="#!" class="text-reset">Hairspa</a>
+</p>
+<p class="p1">
+<a href="#!" class="text-reset">Haircut</a>
+</p>
+<p class="p1">
+<a href="#!" class="text-reset">Headmassage</a>
+</p>
+</div>
+
+
+<div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+<h6 class="text-uppercase fw-bold mb-4">
+Advanced services
+</h6>
+<p class="p1">
+<a href="#!" class="text-reset">Hydrafacial</a>
+</p>
+<p class="p1">
+<a href="#!" class="text-reset">Microblading</a>
+</p>
+<p class="p1">
+<a href="#!" class="text-reset">Eyelash Transplant</a>
+</p>
+</div>
+
+
+<div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+<h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+<p class="p1"><i class="fas fa-home me-3 text-secondary"></i> Mumbai,Dombivli 421201,IND</p>
+<p class="p1">
+<a href="mailto:spriyam951@gmail.com"><i class="fas fa-envelope me-3 text-secondary"></i>spriyam951@gmail.com</a>
+</p>
+<p class="p1"><i class="fas fa-phone me-3 text-secondary"></i> + 91 9167577044</p>
+<p class="p1"><i class="fas fa-print me-3 text-secondary"></i> + 91 9167577044</p>
+</div>
+</div>
+</div>
+</section>
+
+<div id="t1" class="text-center p-4">
+© 2023 Heavensalon:
+<a class="text-reset fw-bold" href="index.html">BY NEETU</a>
+</div>
+</footer>
+<!-- /FOOTER -->
+
+</body>
+</html>
